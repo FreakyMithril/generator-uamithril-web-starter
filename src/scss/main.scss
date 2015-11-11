@@ -1,0 +1,56 @@
+// Here we can include styles
+
+
+
+$footerHeight: 400px !default; //default height > screen sm
+$screen-sm: 768px; //like bootstrap minimal after xss
+
+//start for fixed height bottom footer
+#wrap {
+	height: auto;
+	min-height: 100%;
+	margin: 0 auto (- ($footerHeight + 100));
+	padding: 0 0 $footerHeight + 100;
+	@media (min-width: $screen-sm) {
+		margin: 0 auto (- $footerHeight);
+		padding: 0 0 $footerHeight;
+	}
+}
+
+#footer {
+	position: relative;
+	height: $footerHeight + 100;
+	@media (min-width: $screen-sm) {
+		height: $footerHeight;
+	}
+}
+
+body, html {
+	height: 100%;
+}
+//end for fixed height bottom footer
+
+//start off bootstrap outline links in firefox
+a {
+	&:focus {
+		text-decoration: none;
+		outline: none;
+	}
+}
+//end off bootstrap outline links in firefox
+
+//start no browser support
+.chromeframe {
+	font-size: 30px;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	right: 0;
+	left: 0;
+	text-align: center;
+	background: #fff;
+	a {
+		color: red;
+	}
+}
+//end no browser support
