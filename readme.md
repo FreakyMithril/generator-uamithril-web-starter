@@ -63,16 +63,16 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 -----------------------------------------------
 
 ### Code Style:
-1) Styles:
+1. Styles:
 You can use csscomb file for styles(more: http://csscomb.com)
 In "scss" folder we have main.scss, all files must be included to it with started name, - _sample.scss.
-2) Javascript:
+2. Javascript:
 All files in "js" folder except 'vendor' will be concatenated to scripts.js(main.js will be in the end of file), all files from 'vendor' will be the same in 'dist/js/vendor'
-3) Images:
+3. Images:
 Will auto optimized
-4) Includes:
+4. Includes:
 In "inc" folder we have html parts that need to be include
-5) Data folder:
+5. Data folder:
 We can use to store some files Data
-6) Dev(serve) Task:
+6. Dev(serve) Task:
 Starts local server, show sourcemaps for scss and js files, not optimizing images.
