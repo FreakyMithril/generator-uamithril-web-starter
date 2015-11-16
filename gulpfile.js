@@ -16,6 +16,7 @@ var notify = require("gulp-notify");
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
 var size = require('gulp-size');
+var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var runSequence = require('run-sequence');
 
@@ -23,11 +24,30 @@ var plumberErrorNotify = {
 	errorHandler: notify.onError("Error: <%= error.message %>")
 };
 
-gulp.task('clean', function(cb) {
-	return del(['dist'], cb);
+//start default tasks
+gulp.task('clean', function (cb) {
+	return del(['dist', 'dev'], cb);
 });
+//end default tasks
 
-gulp.task('html', ['copy_vendor_js'], function() {
+//start only deploy tasks
+gulp.task('copy_vendor_js', function () {
+	return gulp.src([
+			'src/js/vendor/*.js'
+		])
+		.pipe(plumber(plumberErrorNotify))
+		.pipe(changed('dist/js/vendor'))
+		.pipe(gulp.dest('dist/js/vendor'))
+		.pipe(notify({
+			"title": "Another scripts",
+			"message": "Scripts moved!",
+			"onLast": true
+		}))
+		.pipe(reload({
+			stream: true
+		}));
+});
+gulp.task('html', ['copy_vendor_js'], function () {
 	return gulp.src(['src/*.html'])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(changed('dist/*.html'))
@@ -42,7 +62,7 @@ gulp.task('html', ['copy_vendor_js'], function() {
 				read: false
 			}), {
 				addRootSlash: false,
-				transform: function(filePath, file, i, length) {
+				transform: function (filePath, file, i, length) {
 					return '<script src="' + filePath.replace('dist/', '') + '"></script>';
 				}
 			}))
@@ -57,7 +77,7 @@ gulp.task('html', ['copy_vendor_js'], function() {
 		}));
 });
 
-gulp.task('copy_fonts', function() {
+gulp.task('copy_fonts', function () {
 	return gulp.src([
 			'src/fonts/**/*'
 		])
@@ -74,7 +94,7 @@ gulp.task('copy_fonts', function() {
 		}));
 });
 
-gulp.task('copy_data', function() {
+gulp.task('copy_data', function () {
 	return gulp.src([
 			'src/data/**/*'
 		])
@@ -91,7 +111,7 @@ gulp.task('copy_data', function() {
 		}));
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', function () {
 	return gulp.src([
 			'src/scss/main.scss'
 		])
@@ -118,7 +138,7 @@ gulp.task('styles', function() {
 		}));
 });
 
-gulp.task('images', function() {
+gulp.task('images', function () {
 	return gulp.src([
 			'src/img/**/*'
 		])
@@ -141,24 +161,7 @@ gulp.task('images', function() {
 		}))
 });
 
-gulp.task('copy_vendor_js', function() {
-	return gulp.src([
-			'src/js/vendor/*.js'
-		])
-		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dist/js/vendor'))
-		.pipe(gulp.dest('dist/js/vendor'))
-		.pipe(notify({
-			"title": "Another scripts",
-			"message": "Scripts moved!",
-			"onLast": true
-		}))
-		.pipe(reload({
-			stream: true
-		}));
-});
-
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
 	return gulp.src([
 			'!src/js/vendor/*.js',
 			'src/js/**/!(main)*.js',
@@ -182,28 +185,7 @@ gulp.task('scripts', function() {
 		}));
 });
 
-gulp.task('serve', ['default'], function() {
-	browserSync({
-		tunnel: false,
-		//tunnel: "gulpprojectstarter",
-		https: false,
-		notify: false,
-		port: 8080,
-		server: {
-			baseDir: ['dist']
-		}
-	});
-
-	gulp.watch(['src/data/**/*'], ['copy_data']);
-	gulp.watch(['src/js/vendor/*.js'], ['copy_vendor_js']);
-	gulp.watch(['src/scss/**/*'], ['styles']);
-	gulp.watch(['src/img/**/*'], ['images']);
-	gulp.watch(['src/fonts/**/*'], ['copy_fonts']);
-	gulp.watch(['src/js/**/*'], ['scripts']);
-	gulp.watch(['src/*.html', 'src/inc/*.html'], ['html']);
-});
-
-gulp.task('default', ['clean'], function(cb) {
+gulp.task('default', ['clean'], function (cb) {
 	runSequence(
 		[
 			'styles',
@@ -217,3 +199,193 @@ gulp.task('default', ['clean'], function(cb) {
 		cb
 	);
 });
+//end only deploy tasks
+
+//start only dev tasks
+gulp.task('copy_vendor_js-dev', function () {
+	return gulp.src([
+			'src/js/vendor/*.js'
+		])
+		.pipe(plumber(plumberErrorNotify))
+		.pipe(changed('dev/js/vendor'))
+		.pipe(gulp.dest('dev/js/vendor'))
+		.pipe(notify({
+			"title": "Another scripts",
+			"message": "Scripts moved!",
+			"onLast": true
+		}))
+		.pipe(reload({
+			stream: true
+		}));
+});
+gulp.task('html-dev', ['copy_vendor_js-dev'], function () {
+	return gulp.src(['src/*.html'])
+		.pipe(plumber(plumberErrorNotify))
+		.pipe(changed('dev/*.html'))
+		.pipe(fileinclude({
+			prefix: '@@',
+			basepath: '@file'
+		}))
+		.pipe(inject(
+			gulp.src([
+				'dev/js/vendor/*.js'
+			], {
+				read: false
+			}), {
+				addRootSlash: false,
+				transform: function (filePath, file, i, length) {
+					return '<script src="' + filePath.replace('dev/', '') + '"></script>';
+				}
+			}))
+		.pipe(gulp.dest('dev'))
+		.pipe(notify({
+			"title": "Html",
+			"message": "Html import refresh done!",
+			"onLast": true
+		}))
+		.pipe(reload({
+			stream: true
+		}));
+});
+
+gulp.task('copy_fonts-dev', function () {
+	return gulp.src([
+			'src/fonts/**/*'
+		])
+		.pipe(plumber(plumberErrorNotify))
+		.pipe(changed('dev/fonts'))
+		.pipe(gulp.dest('dev/fonts'))
+		.pipe(notify({
+			"title": "Fonts",
+			"message": "Fonts moved!",
+			"onLast": true
+		}))
+		.pipe(reload({
+			stream: true
+		}));
+});
+
+gulp.task('copy_data-dev', function () {
+	return gulp.src([
+			'src/data/**/*'
+		])
+		.pipe(plumber(plumberErrorNotify))
+		.pipe(changed('dev/data'))
+		.pipe(gulp.dest('dev/data'))
+		.pipe(notify({
+			"title": "Data",
+			"message": "Data moved!",
+			"onLast": true
+		}))
+		.pipe(reload({
+			stream: true
+		}));
+});
+
+gulp.task('styles-dev', function () {
+	return gulp.src([
+			'src/scss/main.scss'
+		])
+		.pipe(plumber(plumberErrorNotify))
+		.pipe(changed('dev/css'))
+		.pipe(sourcemaps.init())
+		.pipe(prefix({
+			browsers: ['ie 8', 'opera 12', 'ff 15', 'chrome 25', 'last 2 version']
+		}))
+		.pipe(sass({
+			outputStyle: 'expanded'
+		}))
+		.pipe(sourcemaps.write())
+		.pipe(concat('main.css'))
+		.pipe(size({
+			"title": "Styles size of"
+		}))
+		.pipe(gulp.dest('dev/css'))
+		.pipe(notify({
+			"title": "Styles",
+			"message": "css compiled!!",
+			"onLast": true
+		}))
+		.pipe(reload({
+			stream: true
+		}));
+});
+
+gulp.task('images-dev', function () {
+	return gulp.src([
+			'src/img/**/*'
+		])
+		.pipe(plumber(plumberErrorNotify))
+		.pipe(changed('dev/img'))
+		.pipe(gulp.dest('dev/img'))
+		.pipe(notify({
+			"title": "Images dev",
+			"message": "images moved!",
+			"onLast": true
+		}))
+		.pipe(reload({
+			stream: true
+		}))
+});
+
+gulp.task('scripts-dev', function () {
+	return gulp.src([
+			'!src/js/vendor/*.js',
+			'src/js/**/!(main)*.js',
+			'src/js/main.js'
+		])
+		.pipe(plumber(plumberErrorNotify))
+		.pipe(changed('dev/js'))
+		.pipe(sourcemaps.init())
+		.pipe(concat('scripts.js'))
+		.pipe(sourcemaps.write())
+		.pipe(size({
+			"title": "Scripts size of"
+		}))
+		.pipe(gulp.dest('dev/js'))
+		.pipe(notify({
+			"title": "JS",
+			"message": "scripts compiled!",
+			"onLast": true
+		}))
+		.pipe(reload({
+			stream: true
+		}));
+});
+
+gulp.task('dev', ['clean'], function (cb) {
+	runSequence(
+		[
+			'styles-dev',
+			'copy_data-dev',
+			'scripts-dev',
+			'copy_fonts-dev',
+			'html-dev',
+			'copy_vendor_js-dev'
+		],
+		'images-dev', /*images optimization can be with delay, must wait*/
+		cb
+	);
+});
+
+gulp.task('serve', ['dev'], function () {
+	browserSync({
+		tunnel: false,
+		//tunnel: "gulpprojectstarter",
+		https: false,
+		notify: false,
+		port: 8080,
+		server: {
+			baseDir: ['dev']
+		}
+	});
+
+	gulp.watch(['src/data/**/*'], ['copy_data-dev']);
+	gulp.watch(['src/js/vendor/*.js'], ['copy_vendor_js-dev']);
+	gulp.watch(['src/scss/**/*'], ['styles-dev']);
+	gulp.watch(['src/img/**/*'], ['images-dev']);
+	gulp.watch(['src/fonts/**/*'], ['copy_fonts-dev']);
+	gulp.watch(['src/js/**/*'], ['scripts-dev']);
+	gulp.watch(['src/*.html', 'src/inc/*.html'], ['html-dev']);
+});
+//end only dev tasks

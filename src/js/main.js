@@ -3,7 +3,7 @@
 //========================================================================
 (function ($, window, document, undefined) {
 	'use strict';
-	
+
 	//start code here
 
 })(jQuery, window, document);
