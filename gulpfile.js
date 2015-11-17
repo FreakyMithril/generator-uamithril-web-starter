@@ -36,7 +36,6 @@ gulp.task('copy_vendor_js', function () {
 			'src/js/vendor/*.js'
 		])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dist/js/vendor'))
 		.pipe(gulp.dest('dist/js/vendor'))
 		.pipe(notify({
 			"title": "Another scripts",
@@ -50,7 +49,6 @@ gulp.task('copy_vendor_js', function () {
 gulp.task('html', ['copy_vendor_js'], function () {
 	return gulp.src(['src/*.html'])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dist/*.html'))
 		.pipe(fileinclude({
 			prefix: '@@',
 			basepath: '@file'
@@ -82,7 +80,6 @@ gulp.task('copy_fonts', function () {
 			'src/fonts/**/*'
 		])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dist/fonts'))
 		.pipe(gulp.dest('dist/fonts'))
 		.pipe(notify({
 			"title": "Fonts",
@@ -99,7 +96,6 @@ gulp.task('copy_data', function () {
 			'src/data/**/*'
 		])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dist/data'))
 		.pipe(gulp.dest('dist/data'))
 		.pipe(notify({
 			"title": "Data",
@@ -116,7 +112,6 @@ gulp.task('styles', function () {
 			'src/scss/main.scss'
 		])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dist/css'))
 		.pipe(sass({
 			outputStyle: 'compressed'
 		}))
@@ -143,7 +138,6 @@ gulp.task('images', function () {
 			'src/img/**/*'
 		])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dist/img'))
 		.pipe(imagemin({
 			progressive: true,
 			optimizationLevel: 3,
@@ -168,7 +162,6 @@ gulp.task('scripts', function () {
 			'src/js/main.js'
 		])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dist/js'))
 		.pipe(concat('scripts.js'))
 		.pipe(uglify())
 		.pipe(size({
@@ -335,9 +328,13 @@ gulp.task('scripts-dev', function () {
 			'src/js/main.js'
 		])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(changed('dev/js'))
 		.pipe(sourcemaps.init())
 		.pipe(concat('scripts.js'))
+		.pipe(uglify({
+			mangle: false,
+			compress: false,
+			output: { beautify: true }
+		}))
 		.pipe(sourcemaps.write())
 		.pipe(size({
 			"title": "Scripts size of"
