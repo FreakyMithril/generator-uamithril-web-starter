@@ -24,11 +24,11 @@ var plumberErrorNotify = {
 	errorHandler: notify.onError("Error: <%= error.message %>")
 };
 
-//start default tasks
+//start default or specific tasks
 gulp.task('clean', function (cb) {
 	return del(['dist', 'dev'], cb);
 });
-//end default tasks
+//end default or specific tasks
 
 //start only deploy tasks
 gulp.task('copy_vendor_js', function () {
