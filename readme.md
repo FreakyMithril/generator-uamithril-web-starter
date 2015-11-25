@@ -31,7 +31,7 @@ npm install
 
 -----------------------------------------------
 
-If you change some dependencies, or update it, - update package.json
+If you changed some dependencies, or updated it, - please, manually update with 'Tilde Dependencies' package.json
 If have issues after update, Use:
 ```
 npm cache clean
@@ -57,7 +57,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 ### Structure:
 * "src" folder - sources.
 * "dev" folder - local dev folder(server from it)
-* "dist" folder - deploy version. (not stored in git)
+* "dist" folder - deploy version. (please compile before push)
 * "temp" folder - there could be other files. (not stored in git)
 
 -----------------------------------------------

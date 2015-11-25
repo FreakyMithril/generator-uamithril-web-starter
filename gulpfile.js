@@ -162,7 +162,7 @@ gulp.task('scripts', function () {
 			'src/js/main.js'
 		])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(concat('scripts.js'))
+		.pipe(concat('main.js')) /*build single file*/
 		.pipe(uglify())
 		.pipe(size({
 			"title": "Scripts size of"
@@ -329,7 +329,7 @@ gulp.task('scripts-dev', function () {
 		])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(sourcemaps.init())
-		.pipe(concat('scripts.js'))
+		.pipe(concat('main.js')) /*build single file*/
 		.pipe(uglify({
 			mangle: false,
 			compress: false,
