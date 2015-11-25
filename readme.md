@@ -1,8 +1,8 @@
 # Gulp Project Starter
 ### Must have on your computer:
-1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.6.2Win):
-2. [Node.js](https://nodejs.org/en/download) (Guaranteed to work on: 4.2.1Win):
-3. [Ruby](http://rubyinstaller.org/downloads) (Guaranteed to work on: 2.2.3Win):
+1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.6.2 Windows):
+2. [Node.js](https://nodejs.org/en/download) (Guaranteed to work on: 4.2.1 Windows):
+3. [Ruby](http://rubyinstaller.org/downloads) (Guaranteed to work on: 2.2.3 Windows):
 
 -----------------------------------------------
 
