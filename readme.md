@@ -60,6 +60,81 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 * "dist" folder - deploy version. (please compile before push)
 * "temp" folder - there could be other files. (not stored in git)
 
+```
++-- dist
+|   +-- data
+|   |   --- anyfile.json
+|   |   --- icomoon.zip
+|   +-- fonts
+|   |   --- anyfile.eot
+|   |   --- anyfile.svg
+|   |   --- anyfile.ttf
+|   |   --- anyfile.woff
+|   +-- img
+|   |   --- anyfile.jpg
+|   |   --- anyfile.png
+|   |   --- anyfile.svg
+|   +-- js
+|   |   +-- vendor
+|   |   |   --- jquery.js
+|   |   --- main.js
+|   +-- css
+|   |   --- main.css
+|   --- index.html
++-- dev
+|   +-- data
+|   |   --- anyfile.json
+|   |   --- icomoon.zip
+|   +-- fonts
+|   |   --- anyfile.eot
+|   |   --- anyfile.svg
+|   |   --- anyfile.ttf
+|   |   --- anyfile.woff
+|   +-- img
+|   |   --- anyfile.jpg
+|   |   --- anyfile.png
+|   |   --- anyfile.svg
+|   +-- js
+|   |   +-- vendor
+|   |   |   --- jquery.js
+|   |   --- main.js
+|   +-- css
+|   |   --- main.css
+|   --- index.html
++-- src
+|   +-- data
+|   |   --- anyfile.json
+|   |   --- icomoon.zip
+|   +-- fonts
+|   |   --- anyfile.eot
+|   |   --- anyfile.svg
+|   |   --- anyfile.ttf
+|   |   --- anyfile.woff
+|   +-- img
+|   |   --- anyfile.jpg
+|   |   --- anyfile.png
+|   |   --- anyfile.svg
+|   +-- inc
+|   |   --- header.html
+|   |   --- footer.html
+|   +-- js
+|   |   +-- vendor
+|   |   |   --- jquery.js
+|   |   --- main.js
+|   +-- scss
+|   |   --- _general.scss
+|   |   --- main.scss
+|   --- index.html
++-- temp
+|   --- anyfile.psd
+|   --- anyfile.zip
+--- .csscomb.json
+--- .gitignore
+--- gulpfile.js
+--- package.json
+--- readme.md
+```
+
 -----------------------------------------------
 
 ### Code Style:
