@@ -142,7 +142,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 You can use csscomb file for styles(more: http://csscomb.com)
 In "scss" folder we have main.scss, all files must be included to it with started name, - _sample.scss.
 2. Javascript:
-All files in "js" folder except 'vendor' will be concatenated to scripts.js(main.js will be in the end of file), all files from 'vendor' will be the same in 'dist/js/vendor'
+All files in "js" folder except 'vendor' will be concatenated to main.js(src/js/main.js will be in the end of file), all files from 'vendor' will be the same in 'dist/js/vendor'
 3. Images:
 Will auto optimized
 4. Includes:
