@@ -4,6 +4,7 @@ var pngquant = require('imagemin-pngquant');
 var del = require('del');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var runSequence = require('run-sequence');
 
 var gulp = require('gulp');
 var prefix = require('gulp-autoprefixer');
@@ -18,7 +19,6 @@ var sass = require('gulp-sass');
 var size = require('gulp-size');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
-var runSequence = require('run-sequence');
 
 var plumberErrorNotify = {
 	errorHandler: notify.onError("Error: <%= error.message %>")
@@ -46,6 +46,7 @@ gulp.task('copy_vendor_js', function () {
 			stream: true
 		}));
 });
+
 gulp.task('html', ['copy_vendor_js'], function () {
 	return gulp.src(['src/*.html'])
 		.pipe(plumber(plumberErrorNotify))
@@ -211,6 +212,7 @@ gulp.task('copy_vendor_js-dev', function () {
 			stream: true
 		}));
 });
+
 gulp.task('html-dev', ['copy_vendor_js-dev'], function () {
 	return gulp.src(['src/*.html'])
 		.pipe(plumber(plumberErrorNotify))

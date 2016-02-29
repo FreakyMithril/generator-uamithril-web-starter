@@ -1,7 +1,7 @@
 # Gulp Project Starter
 ### Must have on your computer:
-1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.6.2 Windows):
-2. [Node.js](https://nodejs.org/en/download) (Guaranteed to work on: 4.2.1 Windows):
+1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.7.2 Windows):
+2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 4.3.1 Windows):
 3. [Ruby](http://rubyinstaller.org/downloads) (Guaranteed to work on: 2.2.3 Windows):
 
 -----------------------------------------------
@@ -76,7 +76,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 |   |   --- anyfile.svg
 |   +-- js
 |   |   +-- vendor
-|   |   |   --- jquery.js
+|   |   |   --- jquery***.js
 |   |   --- main.js
 |   +-- css
 |   |   --- main.css
@@ -96,7 +96,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 |   |   --- anyfile.svg
 |   +-- js
 |   |   +-- vendor
-|   |   |   --- jquery.js
+|   |   |   --- jquery***.js
 |   |   --- main.js
 |   +-- css
 |   |   --- main.css
@@ -119,7 +119,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 |   |   --- footer.html
 |   +-- js
 |   |   +-- vendor
-|   |   |   --- jquery.js
+|   |   |   --- jquery***.js
 |   |   --- main.js
 |   +-- scss
 |   |   --- _general.scss
