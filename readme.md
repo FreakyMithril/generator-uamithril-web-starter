@@ -31,7 +31,7 @@ npm install
 
 -----------------------------------------------
 
-If you changed some dependencies, or updated it, - please, manually update with 'Tilde Dependencies' package.json
+If you changed some dependencies, or updated it, - please, manually update package.json
 If have issues after update, Use:
 ```
 npm cache clean
