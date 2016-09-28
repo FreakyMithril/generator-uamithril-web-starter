@@ -1,4 +1,4 @@
-# Gulp Project Starter
+# Gulp Project Starter (Nunjucks template engine)
 ### Must have on your computer:
 1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.0 Windows):
 2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 4.6.0 Windows):
@@ -109,9 +109,10 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 |   |   --- anyfile.jpg
 |   |   --- anyfile.png
 |   |   --- anyfile.svg
-|   +-- inc
-|   |   --- header.html
-|   |   --- footer.html
+|   +-- templates
+|   |   +-- parts
+|   |   |   --- some-part.html
+|   |   --- default.html
 |   +-- js
 |   |   +-- vendor
 |   |   |   --- jquery.js
@@ -143,7 +144,7 @@ All files in "js" folder except 'vendor' will be concatenated to main.js(src/js/
 3. Images:
 Will auto optimized
 4. Includes:
-In "inc" folder we have html parts that need to be include
+In "templates" folder we have html parts and templates that need to be include or use. Template Engine - Nunjucks (https://mozilla.github.io/nunjucks/). If you plan to use variables - use without '-' and one word, example - 'titleLabel'
 5. Data folder:
 We can use to store some files Data
 6. Dev(serve) Task:

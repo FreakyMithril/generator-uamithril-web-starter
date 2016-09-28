@@ -5,7 +5,7 @@
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <![endif]-->
-    <title>Home | Gulp Project Starter</title>
+    <title>{{ title }} | Gulp Project Starter</title>
     <!-- <link href='img/apple-touch-icon-precomposed.png' rel='apple-touch-icon-precomposed' sizes='192x192'> -->
     <!-- <link href='img/favicon.ico' rel='shortcut icon' type='image/x-icon'> -->
     <meta name="theme-color" content="#ffffff">
@@ -23,50 +23,21 @@
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 <div id="wrap"><!-- start #wrap -->
-     <!--If need we can set custom header then we have in default template-->
-<header id="header">
-    New HEADER!!!!!
-</header>
+    {% block header %}
+    <header id="header">
+        HEADER! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </header>
+    {% endblock %}
 
-
-     <!--Start Put page data-->
-<div>
-    CONTENT! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</div>
-
-<ul>
-    <li>
-        Autor 1
-    </li>
-    <li>
-        Autor 2
-    </li>
-    <li>
-        Autor 3
-    </li>
-    <li>
-        Autor 4
-    </li>
-    <li>
-        Autor 5
-    </li>
-    <li>
-        Autor 6
-    </li>
-    <li>
-        Autor 7
-    </li>
-</ul> <!--include output template part if need-->
-
-
+    {% block content %}{% endblock %}
 </div><!-- end #wrap -->
 
-
+{% block footer %}
 <footer id="footer">
     FOOTER! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -75,10 +46,9 @@
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </footer>
-
+{% endblock %}
 
 <!-- inject:js -->
-<script src="js/vendor/jquery.js"></script>
 <!-- endinject -->
 <script src="js/main.js"></script>
 </body>

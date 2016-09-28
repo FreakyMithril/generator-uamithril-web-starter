@@ -1,10 +1,21 @@
-@@include('inc/header.html', {
-"title": "Home "
-})
-CONTENT! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-@@include('inc/footer.html')
+{% extends "default.html" %} <!--Our page template-->
+{% set title = "Home" %} <!--Set our page title-->
+{% block header %} <!--If need we can set custom header then we have in default template-->
+<header id="header">
+    New HEADER!!!!!
+</header>
+{% endblock %}
+
+{% block content %} <!--Start Put page data-->
+<div>
+    CONTENT! Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+{% include 'parts/autors-test-part.html' %} <!--include output template part if need-->
+
+{% endblock %} <!--end Put page data block-->

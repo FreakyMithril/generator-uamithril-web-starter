@@ -10,7 +10,7 @@ var gulp = require('gulp');
 var prefix = require('gulp-autoprefixer');
 var changed = require('gulp-changed');
 var concat = require('gulp-concat');
-var fileinclude = require('gulp-file-include');
+var nunjucksRender = require('gulp-nunjucks-render');
 var imagemin = require('gulp-imagemin');
 var inject = require('gulp-inject');
 var notify = require("gulp-notify");
@@ -52,9 +52,8 @@ gulp.task('copy_vendor_js', function () {
 gulp.task('html', ['copy_vendor_js'], function () {
 	return gulp.src(['src/*.html'])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(fileinclude({
-			prefix: '@@',
-			basepath: '@file'
+		.pipe(nunjucksRender({
+			path: ['src/templates']
 		}))
 		.pipe(inject(
 			gulp.src([
@@ -222,9 +221,8 @@ gulp.task('html-dev', ['copy_vendor_js-dev'], function () {
 	return gulp.src(['src/*.html'])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(changed('dev/*.html'))
-		.pipe(fileinclude({
-			prefix: '@@',
-			basepath: '@file'
+		.pipe(nunjucksRender({
+			path: ['src/templates']
 		}))
 		.pipe(inject(
 			gulp.src([
@@ -391,6 +389,6 @@ gulp.task('serve', ['dev'], function () {
 	gulp.watch(['src/img/**/*'], ['images-dev']);
 	gulp.watch(['src/fonts/**/*'], ['copy_fonts-dev']);
 	gulp.watch(['src/js/**/*'], ['scripts-dev']);
-	gulp.watch(['src/*.html', 'src/inc/*.html'], ['html-dev']);
+	gulp.watch(['src/*.html', 'src/templates/*.html', 'src/templates/**/*.html'], ['html-dev']);
 });
 //end only dev tasks
