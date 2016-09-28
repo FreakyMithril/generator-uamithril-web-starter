@@ -1,19 +1,11 @@
 # Gulp Project Starter
 ### Must have on your computer:
-1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.7.2 Windows):
-2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 4.3.1 Windows):
-3. [Ruby](http://rubyinstaller.org/downloads) (Guaranteed to work on: 2.2.3 Windows):
+1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.0 Windows):
+2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 4.6.0 Windows):
 
 -----------------------------------------------
 
 ### Packages:
-Sass(Guaranteed to work on: 3.4.19):
-```
-gem update --system
-```
-```
-gem install sass
-```
 For global dependencies needed on computer:
 ```
 npm install -g browser-sync
