@@ -33,8 +33,10 @@ gulp.task('clean', function (cb) {
 //start only deploy tasks
 gulp.task('copy_vendor_js', function () {
 	return gulp.src([
-			'src/js/vendor/*.js'
-		])
+		'src/js/vendor/!(jquery)*.js',
+		'src/js/vendor/*.js',
+		'src/js/vendor/(jquery)*.js'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(gulp.dest('dist/js/vendor'))
 		.pipe(notify({
@@ -56,6 +58,7 @@ gulp.task('html', ['copy_vendor_js'], function () {
 		}))
 		.pipe(inject(
 			gulp.src([
+				'dist/js/vendor/jquery.js',
 				'dist/js/vendor/*.js'
 			], {
 				read: false
@@ -78,8 +81,8 @@ gulp.task('html', ['copy_vendor_js'], function () {
 
 gulp.task('copy_fonts', function () {
 	return gulp.src([
-			'src/fonts/**/*'
-		])
+		'src/fonts/**/*'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(gulp.dest('dist/fonts'))
 		.pipe(notify({
@@ -94,8 +97,8 @@ gulp.task('copy_fonts', function () {
 
 gulp.task('copy_data', function () {
 	return gulp.src([
-			'src/data/**/*'
-		])
+		'src/data/**/*'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(gulp.dest('dist/data'))
 		.pipe(notify({
@@ -110,8 +113,8 @@ gulp.task('copy_data', function () {
 
 gulp.task('styles', function () {
 	return gulp.src([
-			'src/scss/main.scss'
-		])
+		'src/scss/main.scss'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(sass({
 			outputStyle: 'compressed'
@@ -136,8 +139,8 @@ gulp.task('styles', function () {
 
 gulp.task('images', function () {
 	return gulp.src([
-			'src/img/**/*'
-		])
+		'src/img/**/*'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(imagemin({
 			progressive: true,
@@ -158,10 +161,10 @@ gulp.task('images', function () {
 
 gulp.task('scripts', function () {
 	return gulp.src([
-			'!src/js/vendor/*.js',
-			'src/js/**/!(main)*.js',
-			'src/js/main.js'
-		])
+		'!src/js/vendor/*.js',
+		'src/js/**/!(main)*.js',
+		'src/js/main.js'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(concat('main.js')) /*build single file*/
 		.pipe(uglify())
@@ -198,8 +201,10 @@ gulp.task('default', ['clean'], function (cb) {
 //start only dev tasks
 gulp.task('copy_vendor_js-dev', function () {
 	return gulp.src([
-			'src/js/vendor/*.js'
-		])
+		'src/js/vendor/!(jquery)*.js',
+		'src/js/vendor/*.js',
+		'src/js/vendor/(jquery)*.js'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(changed('dev/js/vendor'))
 		.pipe(gulp.dest('dev/js/vendor'))
@@ -223,6 +228,7 @@ gulp.task('html-dev', ['copy_vendor_js-dev'], function () {
 		}))
 		.pipe(inject(
 			gulp.src([
+				'dev/js/vendor/jquery.js',
 				'dev/js/vendor/*.js'
 			], {
 				read: false
@@ -245,8 +251,8 @@ gulp.task('html-dev', ['copy_vendor_js-dev'], function () {
 
 gulp.task('copy_fonts-dev', function () {
 	return gulp.src([
-			'src/fonts/**/*'
-		])
+		'src/fonts/**/*'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(changed('dev/fonts'))
 		.pipe(gulp.dest('dev/fonts'))
@@ -262,8 +268,8 @@ gulp.task('copy_fonts-dev', function () {
 
 gulp.task('copy_data-dev', function () {
 	return gulp.src([
-			'src/data/**/*'
-		])
+		'src/data/**/*'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(changed('dev/data'))
 		.pipe(gulp.dest('dev/data'))
@@ -279,16 +285,16 @@ gulp.task('copy_data-dev', function () {
 
 gulp.task('styles-dev', function () {
 	return gulp.src([
-			'src/scss/main.scss'
-		])
+		'src/scss/main.scss'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(changed('dev/css'))
 		.pipe(sourcemaps.init())
-		.pipe(prefix({
-			browsers: ['ie 8', 'opera 12', 'ff 15', 'chrome 25', 'last 2 version']
-		}))
 		.pipe(sass({
 			outputStyle: 'expanded'
+		}))
+		.pipe(prefix({
+			browsers: ['ie 8', 'opera 12', 'ff 15', 'chrome 25', 'last 2 version']
 		}))
 		.pipe(sourcemaps.write())
 		.pipe(concat('main.css'))
@@ -308,8 +314,8 @@ gulp.task('styles-dev', function () {
 
 gulp.task('images-dev', function () {
 	return gulp.src([
-			'src/img/**/*'
-		])
+		'src/img/**/*'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(changed('dev/img'))
 		.pipe(gulp.dest('dev/img'))
@@ -325,10 +331,10 @@ gulp.task('images-dev', function () {
 
 gulp.task('scripts-dev', function () {
 	return gulp.src([
-			'!src/js/vendor/*.js',
-			'src/js/**/!(main)*.js',
-			'src/js/main.js'
-		])
+		'!src/js/vendor/*.js',
+		'src/js/**/!(main)*.js',
+		'src/js/main.js'
+	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(sourcemaps.init())
 		.pipe(concat('main.js')) /*build single file*/
@@ -370,7 +376,7 @@ gulp.task('dev', ['clean'], function (cb) {
 gulp.task('serve', ['dev'], function () {
 	browserSync({
 		tunnel: false,
-		//tunnel: "gulpprojectstarter",
+		//tunnel: "gulp-project-starter",
 		https: false,
 		notify: false,
 		port: 8080,

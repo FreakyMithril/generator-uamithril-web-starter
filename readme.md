@@ -51,6 +51,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 * "dev" folder - local dev folder(server from it)
 * "dist" folder - deploy version. (please compile before push)
 * "temp" folder - there could be other files. (not stored in git)
+* "dist" folder - you can delete from '.gitignore' file, and leave only sources in repo, after that you can make simpler commits, without stop 'serve' task before.
 
 ```
 +-- dist
@@ -68,7 +69,9 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 |   |   --- anyfile.svg
 |   +-- js
 |   |   +-- vendor
-|   |   |   --- jquery***.js
+|   |   |   --- jquery.js
+|   |   |   --- ***.js
+|   |   |   --- ***.js
 |   |   --- main.js
 |   +-- css
 |   |   --- main.css
@@ -111,7 +114,9 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 |   |   --- footer.html
 |   +-- js
 |   |   +-- vendor
-|   |   |   --- jquery***.js
+|   |   |   --- jquery.js
+|   |   |   --- ***.js
+|   |   |   --- ***.js
 |   |   --- main.js
 |   +-- scss
 |   |   --- _general.scss
@@ -134,7 +139,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 You can use csscomb file for styles(more: http://csscomb.com)
 In "scss" folder we have main.scss, all files must be included to it with started name, - _sample.scss.
 2. Javascript:
-All files in "js" folder except 'vendor' will be concatenated to main.js(src/js/main.js will be in the end of file), all files from 'vendor' will be the same in 'dist/js/vendor'
+All files in "js" folder except 'vendor' will be concatenated to main.js(src/js/main.js will be in the end of file), all files from 'vendor' will be the same in 'dist/js/vendor', if in 'vendor' folder you have file named - jquery.js, it will include first
 3. Images:
 Will auto optimized
 4. Includes:
