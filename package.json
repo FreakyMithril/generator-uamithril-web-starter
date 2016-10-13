@@ -1,7 +1,7 @@
 {
-  "name": "gulp-project-starter",
-  "version": "1.2.1",
-  "description": "Gulp Project starter Description",
+  "name": "generator-gulp-project-starter",
+  "version": "1.2.2",
+  "description": "Gulp Project starter with template engine - Nunjucks",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,11 +12,19 @@
     "url": "https://github.com/uamithril/gulp-project-starter"
   },
   "license": "ISC",
+  "keywords": [
+    "uamithril",
+    "gulp",
+    "nunjucks",
+    "generator",
+    "yeoman-generator"
+  ],
   "dependencies": {
     "browser-sync": "^2.16.0",
     "del": "^2.2.2",
     "imagemin-pngquant": "^4.2.2",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "yeoman-generator": "^0.24.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
