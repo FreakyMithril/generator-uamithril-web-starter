@@ -1,4 +1,4 @@
-# Gulp Project Starter (Nunjucks template engine)
+# uaMithril Web Starter (Nunjucks template engine)
 ### Must have on your computer:
 1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.0 Windows):
 2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 4.6.0 Windows):

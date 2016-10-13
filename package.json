@@ -1,7 +1,7 @@
 {
-  "name": "generator-uamithril-project-starter",
-  "version": "0.2.0",
-  "description": "Gulp Project starter with template engine - Nunjucks",
+  "name": "generator-uamithril-web-starter",
+  "version": "0.0.1",
+  "description": "Web Project starter with template engine - Nunjucks, scss, and gulp",
   "files": [
     "src/",
     "src/data",
@@ -17,12 +17,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "uaMithril <mithrilwork@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "uamithril/generator-uamithril-project-starter"
+  "author": {
+    "name": "uaMithril",
+    "email": "mithrilwork@gmail.com"
   },
-  "license": "ISC",
+  "repository": "uamithril/generator-uamithril-web-starter",
+  "license": "MIT",
   "keywords": [
     "uamithril",
     "gulp",
