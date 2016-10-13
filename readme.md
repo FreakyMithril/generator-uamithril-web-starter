@@ -47,11 +47,10 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 -----------------------------------------------
 
 ### Structure:
-* "src" folder - sources.
-* "dev" folder - local dev folder(server from it)
-* "dist" folder - deploy version. (please compile before push)
-* "temp" folder - there could be other files. (not stored in git)
-* "dist" folder - you can delete from '.gitignore' file, and leave only sources in repo, after that you can make simpler commits, without stop 'serve' task before.
+* "src" folder - project sources
+* "dev" folder - local dev folder (local server work from it, not stored in git)
+* "dist" folder - deploy version (not stored in git)
+* "temp" folder - there could be other files (not stored in git)
 
 ```
 +-- dist
@@ -146,6 +145,6 @@ Will auto optimized
 4. Includes:
 In "templates" folder we have html parts and templates that need to be include or use. Template Engine - Nunjucks (https://mozilla.github.io/nunjucks/). If you plan to use variables - use without '-' and one word, example - 'titleLabel'
 5. Data folder:
-We can use to store some files Data
+We can use to store some files Data, like Json, and others
 6. Dev(serve) Task:
 Starts local server, show sourcemaps for scss and js files, not optimizing images.
