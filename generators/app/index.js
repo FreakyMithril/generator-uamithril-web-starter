@@ -13,7 +13,7 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       type: 'confirm',
       name: 'someAnswer',
-      message: 'Would you like to enable this option?',
+      message: 'Would you like to enable this Test option?(Nothing happened - it is just a test)',
       default: true
     }];
 
