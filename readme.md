@@ -8,6 +8,9 @@
 ### Packages:
 For global dependencies needed on computer:
 ```
+npm install -g yo
+```
+```
 npm install -g browser-sync
 ```
 ```

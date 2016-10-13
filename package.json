@@ -1,15 +1,26 @@
 {
   "name": "generator-gulp-project-starter",
-  "version": "1.2.2",
+  "version": "0.2.0",
   "description": "Gulp Project starter with template engine - Nunjucks",
+  "files": [
+    "src/",
+    "src/data",
+    "src/fonts",
+    "src/img",
+    ".csscomb.json",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json",
+    "readme.md"
+  ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "uamithril <mithrilwork@gmail.com>",
+  "author": "uaMithril <mithrilwork@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/uamithril/gulp-project-starter"
+    "url": "uamithril/gulp-project-starter"
   },
   "license": "ISC",
   "keywords": [
