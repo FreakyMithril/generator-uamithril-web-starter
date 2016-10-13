@@ -1,5 +1,2 @@
-temp/
-node_modules/
-.idea/
-dev/
-dist/
+node_modules
+coverage
