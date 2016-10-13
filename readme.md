@@ -1,4 +1,4 @@
-# generator-uamithril-web-starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# uaMithril Web Starter [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Web Project starter with template engine - Nunjucks, scss, and gulp.js
 
 ## Installation

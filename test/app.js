@@ -12,7 +12,7 @@ describe('generator-uamithril-web-starter:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'dummyfile.txt'
+      ''
     ]);
   });
 });

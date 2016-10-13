@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/gulp-project-starter.iml" filepath="$PROJECT_DIR$/.idea/gulp-project-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/generator-uamithril-web-starter.iml" filepath="$PROJECT_DIR$/.idea/generator-uamithril-web-starter.iml" />
     </modules>
   </component>
 </project>
