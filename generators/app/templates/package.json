@@ -1,5 +1,5 @@
 {
-  "name": "generator-uamithril-web-starter",
+  "name": "uamithril-web-starter",
   "version": "0.0.1",
   "description": "Web Project starter with template engine - Nunjucks, scss, and gulp",
   "files": [
@@ -26,16 +26,13 @@
   "keywords": [
     "uamithril",
     "gulp",
-    "nunjucks",
-    "generator",
-    "yeoman-generator"
+    "nunjucks"
   ],
   "dependencies": {
     "browser-sync": "^2.16.0",
     "del": "^2.2.2",
     "imagemin-pngquant": "^4.2.2",
-    "run-sequence": "^1.2.2",
-    "yeoman-generator": "^0.24.1"
+    "run-sequence": "^1.2.2"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

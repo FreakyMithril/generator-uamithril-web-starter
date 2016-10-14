@@ -25,7 +25,7 @@ yo uamithril-web-starter
 
 ## License
 
-MIT © [uaMithril](No homepage)
+MIT © uaMithril
 
 
 [npm-image]: https://badge.fury.io/js/generator-uamithril-web-starter.svg

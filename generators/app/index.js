@@ -25,12 +25,12 @@ module.exports = yeoman.Base.extend({
 
   writing: function () {
     this.fs.copy(
-      this.templatePath(''),
-      this.destinationPath('')
+      this.templatePath(),
+      this.destinationPath()
     );
   },
 
   install: function () {
-    this.installDependencies();
+    this.npmInstall();
   }
 });

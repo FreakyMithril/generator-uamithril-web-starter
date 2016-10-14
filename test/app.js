@@ -4,15 +4,18 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('generator-uamithril-web-starter:app', function () {
-  before(function () {
-    return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({someAnswer: true})
-      .toPromise();
-  });
+	before(function () {
+		return helpers.run(path.join(__dirname, '../generators/app'))
+			.withPrompts({someAnswer: true})
+			.toPromise();
+	});
 
-  it('creates files', function () {
-    assert.file([
-      ''
-    ]);
-  });
+	it('creates files', function () {
+		assert.file([
+			'src/',
+			'gulpfile.js',
+			'package.json',
+			'readme.md'
+		]);
+	});
 });
