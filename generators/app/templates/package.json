@@ -1,6 +1,6 @@
 {
   "name": "uamithril-web-starter",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Web Project starter with template engine - Nunjucks, scss, and gulp",
   "files": [
     "src/",
