@@ -1,7 +1,7 @@
 {
-  "name": "uamithril-web-starter",
+  "name": "<%= projectName %>",
   "version": "0.0.0",
-  "description": "Web Project starter with template engine - Nunjucks, scss, and gulp",
+  "description": "<%= projectDescriptionText %>",
   "files": [
     "src/",
     "src/data",
@@ -18,16 +18,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": {
-    "name": "uaMithril",
-    "email": "mithrilwork@gmail.com"
+    "name": "<%= projectAuthorName %>",
+    "email": "<%= projectAuthorEmail %>"
   },
-  "repository": "uamithril/generator-uamithril-web-starter",
-  "license": "MIT",
-  "keywords": [
-    "uamithril",
-    "gulp",
-    "nunjucks"
-  ],
   "dependencies": {
     "browser-sync": "^2.16.0",
     "del": "^2.2.2",

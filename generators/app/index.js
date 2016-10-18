@@ -12,7 +12,7 @@ function makeProjectName(name) {
 module.exports = yeoman.Base.extend({
 	prompting: function () {
 		this.log(yosay(
-			'Welcome to the ' + chalk.red('uamithril-web-starter') + ' generator!'
+			'Welcome to the ' + chalk.green('uamithril-web-starter') + ' generator!'
 		));
 
 		var prompts = [
@@ -25,20 +25,32 @@ module.exports = yeoman.Base.extend({
 			{
 				type: 'input',
 				name: 'projectName',
-				message: 'Type short name of your project (Lowercase and with NO spaces)',
+				message: 'Type short name of your project (Lowercase and with NO spaces, will be used for project folder)',
 				filter: makeProjectName,
 				default: 'new-project'
+			},
+			{
+				type: 'input',
+				name: 'projectDescriptionText',
+				message: 'Type short Description text for your project',
+				default: 'Base project Description'
+			},
+			{
+				type: 'input',
+				name: 'projectAuthorName',
+				message: 'Type project Author Name or nickname',
+				default: 'Nice Developer'
+			},
+			{
+				type: 'input',
+				name: 'projectAuthorEmail',
+				message: 'Type project Author Email',
+				default: 'example@example.com'
 			},
 			{
 				type: 'confirm',
 				name: 'useBuildInGit',
 				message: 'Do you agree to NOT include "build" folder of project inside GIT repo? (it will make simpler commits)',
-				default: true
-			},
-			{
-				type: 'confirm',
-				name: 'someAnswer',
-				message: 'Would you like to enable this Test option? (Nothing happened - it is just a test)',
 				default: true
 			}
 		];
@@ -48,11 +60,34 @@ module.exports = yeoman.Base.extend({
 			this.props = props;
 		}.bind(this));
 	},
-
 	writing: function () {
 		this.fs.copy(
 			this.templatePath(),
 			this.destinationPath()
+		);
+		this.fs.copyTpl(
+			this.templatePath('.gitignore'),
+			this.destinationPath('.gitignore'),
+			{
+				useBuildInGit: this.props.useBuildInGit
+			}
+		);
+		this.fs.copyTpl(
+			this.templatePath('readme.md'),
+			this.destinationPath('readme.md'),
+			{
+				projectTitleName: this.props.projectTitleName
+			}
+		);
+		this.fs.copyTpl(
+			this.templatePath('package.json'),
+			this.destinationPath('package.json'),
+			{
+				projectName: this.props.projectName,
+				projectDescriptionText: this.props.projectDescriptionText,
+				projectAuthorName: this.props.projectAuthorName,
+				projectAuthorEmail: this.props.projectAuthorEmail
+			}
 		);
 	},
 

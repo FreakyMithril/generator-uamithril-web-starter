@@ -374,7 +374,7 @@ gulp.task('dev', ['clean'], function (cb) {
 gulp.task('serve', ['dev'], function () {
 	browserSync({
 		tunnel: false,
-		//tunnel: "uamithril-web-starter",
+		//tunnel: "project-web-version",
 		https: false,
 		notify: false,
 		port: 8080,
