@@ -62,11 +62,19 @@ module.exports = yeoman.Base.extend({
 	},
 	writing: function () {
 		this.fs.copy(
-			this.templatePath(),
-			this.destinationPath()
+			this.templatePath('src'),
+			this.destinationPath('src')
+		);
+		this.fs.copy(
+			this.templatePath('.csscomb.json'),
+			this.destinationPath('.csscomb.json')
+		);
+		this.fs.copy(
+			this.templatePath('gulpfile.js'),
+			this.destinationPath('gulpfile.js')
 		);
 		this.fs.copyTpl(
-			this.templatePath('.gitignore'),
+			this.templatePath('gitignore'),
 			this.destinationPath('.gitignore'),
 			{
 				useBuildInGit: this.props.useBuildInGit
