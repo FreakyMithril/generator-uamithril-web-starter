@@ -6,9 +6,3 @@ node_js:
 branches:
   only:
   - master
-script:
-  - npm link
-  - mkdir test-generator && cd test-generator
-  - yo uamithril-web-starter
-after_script:
-  - npm install && npm test

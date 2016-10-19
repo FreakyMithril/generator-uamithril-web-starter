@@ -16,7 +16,9 @@ gulp.task('static', function () {
 });
 
 gulp.task('nsp', function (cb) {
-  nsp({package: path.resolve('package.json')}, cb);
+  nsp({
+  	package: path.resolve('package.json')
+  }, cb);
 });
 
 gulp.task('pre-test', function () {
