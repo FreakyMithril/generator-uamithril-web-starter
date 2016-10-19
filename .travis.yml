@@ -6,7 +6,4 @@ node_js:
 branches:
   only:
   - master
-env:
-  - TEST_DIR=generators/app/templates
-  - TEST_DIR=
-script: cd $TEST_DIR && npm install && npm test
+after_success: cd generators/app/templates && npm install && npm test
