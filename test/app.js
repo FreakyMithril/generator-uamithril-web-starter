@@ -40,4 +40,12 @@ describe('generator-uamithril-web-starter:app', function () {
 	it('dist folder is in gitignore', function() {
 		assert.equal(mockPrompts.useBuildInGit, true);
 	});
+	it('gulp,js should contain tasks', function () {
+		[
+			'default',
+			'serve'
+		].forEach(function (task) {
+			assert.fileContent('gulpfile.js', 'gulp.task(\'' + task);
+		});
+	});
 });

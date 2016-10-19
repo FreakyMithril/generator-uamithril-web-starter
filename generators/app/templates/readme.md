@@ -6,26 +6,6 @@
 
 -----------------------------------------------
 
-### Packages:
-For global dependencies needed on computer:
-```
-npm install browser-sync gulp csscomb -g
-```
-For install local dependencies:
-```
-npm install
-```
-
------------------------------------------------
-
-If you changed some dependencies, or updated it, - please, manually update package.json
-If have issues after update, Use:
-```
-npm cache clean
-```
-
------------------------------------------------
-
 ### All compiling with Gulp!!!
 For build(included clean and default task), just type:
 ```
