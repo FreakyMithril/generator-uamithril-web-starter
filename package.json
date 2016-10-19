@@ -1,6 +1,6 @@
 {
   "name": "generator-uamithril-web-starter",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Web Project starter with template engine - Nunjucks, scss, and gulp.js",
   "homepage": "https://github.com/uamithril/generator-uamithril-web-starter",
   "author": {
