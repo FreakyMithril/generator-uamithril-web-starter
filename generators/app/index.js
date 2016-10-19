@@ -74,7 +74,7 @@ module.exports = yeoman.Base.extend({
 			this.destinationPath('gulpfile.js')
 		);
 		this.fs.copyTpl(
-			this.templatePath('gitignore'),
+			this.templatePath('willbeignored'),
 			this.destinationPath('.gitignore'),
 			{
 				useBuildInGit: this.props.useBuildInGit
