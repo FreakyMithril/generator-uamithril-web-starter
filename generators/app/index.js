@@ -54,40 +54,52 @@ module.exports = yeoman.Base.extend({
 			this.props = props;
 		}.bind(this));
 	},
-	writing: function () {
-		this.fs.copy(
-			this.templatePath('src'),
-			this.destinationPath('src')
-		);
-		this.fs.copy(
-			this.templatePath('.csscomb.json'),
-			this.destinationPath('.csscomb.json')
-		);
-		this.fs.copy(
-			this.templatePath('gulpfile.js'),
-			this.destinationPath('gulpfile.js')
-		);
-		this.fs.copy(
-			this.templatePath('gitignore'),
-			this.destinationPath('.gitignore')
-		);
-		this.fs.copyTpl(
-			this.templatePath('readme.md'),
-			this.destinationPath('readme.md'),
-			{
-				projectTitleName: this.props.projectTitleName
-			}
-		);
-		this.fs.copyTpl(
-			this.templatePath('package.json'),
-			this.destinationPath('package.json'),
-			{
-				projectName: this.props.projectName,
-				projectDescriptionText: this.props.projectDescriptionText,
-				projectAuthorName: this.props.projectAuthorName,
-				projectAuthorEmail: this.props.projectAuthorEmail
-			}
-		);
+	writing: {
+		srcFolder: function () {
+			this.fs.copy(
+				this.templatePath('src'),
+				this.destinationPath('src')
+			)
+		},
+		cssComb: function () {
+			this.fs.copy(
+				this.templatePath('.csscomb.json'),
+				this.destinationPath('.csscomb.json')
+			)
+		},
+		gulpFile: function () {
+			this.fs.copy(
+				this.templatePath('gulpfile.js'),
+				this.destinationPath('gulpfile.js')
+			)
+		},
+		gitIgnore: function () {
+			this.fs.copy(
+				this.templatePath('gitignore'),
+				this.destinationPath('.gitignore')
+			)
+		},
+		readMe: function () {
+			this.fs.copyTpl(
+				this.templatePath('readme.md'),
+				this.destinationPath('readme.md'),
+				{
+					projectTitleName: this.props.projectTitleName
+				}
+			)
+		},
+		packageJson: function () {
+			this.fs.copyTpl(
+				this.templatePath('package.json'),
+				this.destinationPath('package.json'),
+				{
+					projectName: this.props.projectName,
+					projectDescriptionText: this.props.projectDescriptionText,
+					projectAuthorName: this.props.projectAuthorName,
+					projectAuthorEmail: this.props.projectAuthorEmail
+				}
+			)
+		}
 	},
 	install: function () {
 		this.npmInstall();
