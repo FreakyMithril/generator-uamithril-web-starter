@@ -10,7 +10,7 @@ npm install -g yo
 npm install -g generator-uamithril-web-starter
 ```
 
-Then generate your new project:
+Create some new folder for project, and inside it, - run:
 
 ```bash
 yo uamithril-web-starter
