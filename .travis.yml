@@ -6,5 +6,7 @@ node_js:
 branches:
   only:
   - master
+script:
+  - yo uamithril-web-starter
 after_script:
-  - cd generators/app/templates && npm install && npm test
+  - npm install && npm test
