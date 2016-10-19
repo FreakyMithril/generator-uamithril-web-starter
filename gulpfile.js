@@ -2,7 +2,6 @@
 var path = require('path');
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
-var excludeGitignore = require('gulp-exclude-gitignore');
 var mocha = require('gulp-mocha');
 var istanbul = require('gulp-istanbul');
 var nsp = require('gulp-nsp');
@@ -10,7 +9,6 @@ var plumber = require('gulp-plumber');
 
 gulp.task('static', function () {
   return gulp.src(['**/*.js', '!node_modules/**'])
-    .pipe(excludeGitignore())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
 });
@@ -23,7 +21,6 @@ gulp.task('nsp', function (cb) {
 
 gulp.task('pre-test', function () {
   return gulp.src('generators/**/*.js')
-    .pipe(excludeGitignore())
     .pipe(istanbul())
     .pipe(istanbul.hookRequire());
 });
