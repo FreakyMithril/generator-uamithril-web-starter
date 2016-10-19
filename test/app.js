@@ -8,8 +8,7 @@ var mockPrompts = {
 	projectName: 'Test project name',
 	projectDescriptionText: 'Test text',
 	projectAuthorName: 'Test text',
-	projectAuthorEmail: 'Test text',
-	useBuildInGit: true
+	projectAuthorEmail: 'Test text'
 };
 
 describe('generator-uamithril-web-starter:app', function () {
@@ -36,9 +35,6 @@ describe('generator-uamithril-web-starter:app', function () {
 			['package.json', mockPrompts.projectAuthorName],
 			['package.json', mockPrompts.projectAuthorEmail]
 		]);
-	});
-	it('dist folder is in gitignore', function() {
-		assert.equal(mockPrompts.useBuildInGit, true);
 	});
 	it('gulp.js should contain tasks', function () {
 		[

@@ -46,12 +46,6 @@ module.exports = yeoman.Base.extend({
 				name: 'projectAuthorEmail',
 				message: 'Type project Author Email',
 				default: 'example@example.com'
-			},
-			{
-				type: 'confirm',
-				name: 'useBuildInGit',
-				message: 'Do you agree to NOT include "build" folder of project inside GIT repo? (it will make simpler commits)',
-				default: true
 			}
 		];
 
@@ -73,12 +67,9 @@ module.exports = yeoman.Base.extend({
 			this.templatePath('gulpfile.js'),
 			this.destinationPath('gulpfile.js')
 		);
-		this.fs.copyTpl(
-			this.templatePath('willbeignored'),
-			this.destinationPath('.gitignore'),
-			{
-				useBuildInGit: this.props.useBuildInGit
-			}
+		this.fs.copy(
+			this.templatePath('gitignore'),
+			this.destinationPath('.gitignore')
 		);
 		this.fs.copyTpl(
 			this.templatePath('readme.md'),

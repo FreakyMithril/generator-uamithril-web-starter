@@ -1,5 +1,0 @@
-temp/
-node_modules/
-.idea/
-dev/
-<% if (useBuildInGit) { %>dist/<% } %>
