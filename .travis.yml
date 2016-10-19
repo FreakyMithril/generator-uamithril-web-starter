@@ -6,4 +6,5 @@ node_js:
 branches:
   only:
   - master
-after_success: cd generators/app/templates && npm install && npm test
+after_success:
+  script: cd generators/app/templates && npm install && npm test
