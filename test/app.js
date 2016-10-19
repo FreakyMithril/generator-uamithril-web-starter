@@ -18,7 +18,7 @@ describe('generator-uamithril-web-starter:app', function () {
 			.toPromise();
 	});
 
-	it('creates files', function () {
+	it('creates expected files', function () {
 		assert.file([
 			'src/',
 			'.gitignore',
