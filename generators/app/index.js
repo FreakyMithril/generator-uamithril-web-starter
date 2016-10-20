@@ -55,10 +55,22 @@ module.exports = yeoman.Base.extend({
 		}.bind(this));
 	},
 	writing: {
-		srcFolder: function () {
+		srcFiles: function () {
 			this.fs.copy(
-				this.templatePath('src'),
-				this.destinationPath('src')
+				this.templatePath('src/js'),
+				this.destinationPath('src/js')
+			);
+			this.fs.copy(
+				this.templatePath('src/scss'),
+				this.destinationPath('src/scss')
+			);
+			this.fs.copy(
+				this.templatePath('src/templates'),
+				this.destinationPath('src/templates')
+			);
+			this.fs.copy(
+				this.templatePath('src/index.html'),
+				this.destinationPath('src/index.html')
 			)
 		},
 		cssComb: function () {
@@ -75,7 +87,7 @@ module.exports = yeoman.Base.extend({
 		},
 		git: function () {
 			this.fs.move(
-				this.templatePath('src/git_ignore'),
+				this.templatePath('src/gitignore'),
 				this.destinationPath('.gitignore')
 			);
 		},
