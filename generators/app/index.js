@@ -74,8 +74,8 @@ module.exports = yeoman.Base.extend({
 			);
 		},
 		git: function () {
-			this.fs.copy(
-				this.templatePath('gitignore'),
+			this.fs.move(
+				this.templatePath('src/git_ignore'),
 				this.destinationPath('.gitignore')
 			);
 		},
