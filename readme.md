@@ -30,5 +30,5 @@ MIT © uaMithril
 [npm-url]: https://npmjs.org/package/generator-uamithril-web-starter
 [travis-image]: https://travis-ci.org/uamithril/generator-uamithril-web-starter.svg?branch=master
 [travis-url]: https://travis-ci.org/uamithril/generator-uamithril-web-starter
-[daviddm-image]: https://david-dm.org/uamithril/generator-uamithril-web-starter.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/uamithril/generator-uamithril-web-starter
+[daviddm-image]: https://david-dm.org/uamithril/generator-uamithril-web-starter/master.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/uamithril/generator-uamithril-web-starter/master
