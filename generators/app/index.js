@@ -73,6 +73,12 @@ module.exports = yeoman.Base.extend({
 				this.destinationPath('src/index.html')
 			)
 		},
+		babelFile: function () {
+			this.fs.copy(
+				this.templatePath('.babelrc'),
+				this.destinationPath('.babelrc')
+			)
+		},
 		cssComb: function () {
 			this.fs.copy(
 				this.templatePath('.csscomb.json'),

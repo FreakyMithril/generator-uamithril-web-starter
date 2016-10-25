@@ -21,6 +21,7 @@ describe('generator-uamithril-web-starter:app', function () {
 	it('creates expected files', function () {
 		assert.file([
 			'src/',
+			'.babelrc',
 			'.gitignore',
 			'gulpfile.js',
 			'package.json',
