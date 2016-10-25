@@ -1,4 +1,5 @@
-# Gulp Project Starter (Nunjucks template engine)
+# Gulp Project Starter (Nunjucks template engine) 
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 ### Must have on your computer:
 1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.0 Windows):
 2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 4.6.0 Windows):
@@ -8,25 +9,11 @@
 ### Packages:
 For global dependencies needed on computer:
 ```
-npm install -g browser-sync
-```
-```
-npm install -g gulp
-```
-```
-npm install -g csscomb
+npm install browser-sync gulp csscomb -g
 ```
 For install local dependencies:
 ```
 npm install
-```
-
------------------------------------------------
-
-If you changed some dependencies, or updated it, - please, manually update package.json
-If have issues after update, Use:
-```
-npm cache clean
 ```
 
 -----------------------------------------------
@@ -47,11 +34,10 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 -----------------------------------------------
 
 ### Structure:
-* "src" folder - sources.
-* "dev" folder - local dev folder(server from it)
-* "dist" folder - deploy version. (please compile before push)
-* "temp" folder - there could be other files. (not stored in git)
-* "dist" folder - you can delete from '.gitignore' file, and leave only sources in repo, after that you can make simpler commits, without stop 'serve' task before.
+* "src" folder - project sources
+* "dev" folder - local dev folder (local server work from it, not stored in git)
+* "dist" folder - deploy version (not stored in git)
+* "temp" folder - there could be other files (not stored in git)
 
 ```
 +-- dist
@@ -146,6 +132,15 @@ Will auto optimized
 4. Includes:
 In "templates" folder we have html parts and templates that need to be include or use. Template Engine - Nunjucks (https://mozilla.github.io/nunjucks/). If you plan to use variables - use without '-' and one word, example - 'titleLabel'
 5. Data folder:
-We can use to store some files Data
+We can use to store some files Data, like Json, and others
 6. Dev(serve) Task:
 Starts local server, show sourcemaps for scss and js files, not optimizing images.
+
+## License
+
+MIT © uaMithril
+
+[travis-image]: https://travis-ci.org/uamithril/generator-uamithril-web-starter.svg?branch=html-template-engine
+[travis-url]: https://travis-ci.org/uamithril/generator-uamithril-web-starter
+[daviddm-image]: https://david-dm.org/uamithril/generator-uamithril-web-starter/nunjucks-template-engine.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/uamithril/generator-uamithril-web-starter/nunjucks-template-engine

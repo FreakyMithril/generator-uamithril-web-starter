@@ -7,6 +7,7 @@ var reload = browserSync.reload;
 var runSequence = require('run-sequence');
 
 var gulp = require('gulp');
+var babel = require("gulp-babel");
 var prefix = require('gulp-autoprefixer');
 var changed = require('gulp-changed');
 var concat = require('gulp-concat');
@@ -165,6 +166,7 @@ gulp.task('scripts', function () {
 		'src/js/main.js'
 	])
 		.pipe(plumber(plumberErrorNotify))
+		.pipe(babel())
 		.pipe(concat('main.js')) /*build single file*/
 		.pipe(uglify())
 		.pipe(size({
@@ -335,6 +337,7 @@ gulp.task('scripts-dev', function () {
 	])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(sourcemaps.init())
+		.pipe(babel())
 		.pipe(concat('main.js')) /*build single file*/
 		.pipe(uglify({
 			mangle: false,

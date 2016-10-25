@@ -1,7 +1,7 @@
 //========================================================================
 //Begin all initial scripts
 //========================================================================
-(function ($, window, document, undefined) {
+(($, window, document, undefined) => {
 	'use strict';
 
 	//start code here
