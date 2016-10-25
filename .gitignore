@@ -2,3 +2,6 @@ temp/
 node_modules/
 .idea/
 dev/
+generators/
+coverage/
+dist/
