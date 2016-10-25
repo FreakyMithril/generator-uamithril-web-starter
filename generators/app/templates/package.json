@@ -10,7 +10,7 @@
     ".babelrc",
     ".csscomb.json",
     ".gitignore",
-    "gulpfile.js",
+    "gulpfile.babel.js",
     "package.json",
     "readme.md"
   ],
@@ -31,6 +31,7 @@
   "devDependencies": {
     "babel-cli": "^6.16.0",
     "babel-preset-es2015": "^6.16.0",
+    "babel-register": "^6.18.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",

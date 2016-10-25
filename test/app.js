@@ -23,7 +23,7 @@ describe('generator-uamithril-web-starter:app', function () {
 			'src/',
 			'.babelrc',
 			'.gitignore',
-			'gulpfile.js',
+			'gulpfile.babel.js',
 			'package.json',
 			'readme.md'
 		]);
@@ -37,12 +37,12 @@ describe('generator-uamithril-web-starter:app', function () {
 			['package.json', mockPrompts.projectAuthorEmail]
 		]);
 	});
-	it('gulp.js should contain tasks', function () {
+	it('gulpfile.babel.js should contain tasks', function () {
 		[
 			'default',
 			'serve'
 		].forEach(function (task) {
-			assert.fileContent('gulpfile.js', 'gulp.task(\'' + task);
+			assert.fileContent('gulpfile.babel.js', 'gulp.task(\'' + task);
 		});
 	});
 });

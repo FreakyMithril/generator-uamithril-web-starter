@@ -87,8 +87,8 @@ module.exports = yeoman.Base.extend({
 		},
 		gulpFile: function () {
 			this.fs.copy(
-				this.templatePath('gulpfile.js'),
-				this.destinationPath('gulpfile.js')
+				this.templatePath('gulpfile.babel.js'),
+				this.destinationPath('gulpfile.babel.js')
 			);
 		},
 		git: function () {
