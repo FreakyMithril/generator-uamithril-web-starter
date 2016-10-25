@@ -1,6 +1,6 @@
 {
   "name": "gulp-project-starter",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Gulp Project starter Description",
   "main": "index.js",
   "scripts": {
