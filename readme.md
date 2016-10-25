@@ -140,7 +140,7 @@ Starts local server, show sourcemaps for scss and js files, not optimizing image
 
 MIT © uaMithril
 
-[travis-image]: https://travis-ci.org/uamithril/generator-uamithril-web-starter.svg?branch=html-template-engine
+[travis-image]: https://travis-ci.org/uamithril/generator-uamithril-web-starter.svg?branch=nunjucks-template-engine
 [travis-url]: https://travis-ci.org/uamithril/generator-uamithril-web-starter
 [daviddm-image]: https://david-dm.org/uamithril/generator-uamithril-web-starter/nunjucks-template-engine.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/uamithril/generator-uamithril-web-starter/nunjucks-template-engine
