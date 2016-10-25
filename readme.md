@@ -114,7 +114,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 |   --- anyfile.zip
 --- .csscomb.json
 --- .gitignore
---- gulpfile.js
+--- gulpfile.babel.js
 --- package.json
 --- readme.md
 ```

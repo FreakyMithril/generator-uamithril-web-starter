@@ -1,38 +1,36 @@
 "use strict";
 
-var pngquant = require('imagemin-pngquant');
-var del = require('del');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
-var runSequence = require('run-sequence');
+import pngquant from 'imagemin-pngquant';
+import del from 'del';
+import browserSync from 'browser-sync';
+const reload = browserSync.reload;
+import runSequence from 'run-sequence';
 
-var gulp = require('gulp');
-var babel = require("gulp-babel");
-var prefix = require('gulp-autoprefixer');
-var changed = require('gulp-changed');
-var concat = require('gulp-concat');
-var nunjucksRender = require('gulp-nunjucks-render');
-var imagemin = require('gulp-imagemin');
-var inject = require('gulp-inject');
-var notify = require("gulp-notify");
-var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
-var size = require('gulp-size');
-var sourcemaps = require('gulp-sourcemaps');
-var uglify = require('gulp-uglify');
+import gulp from 'gulp';
+import babel from "gulp-babel";
+import prefix from 'gulp-autoprefixer';
+import changed from 'gulp-changed';
+import concat from 'gulp-concat';
+import nunjucksRender from 'gulp-nunjucks-render';
+import imagemin from 'gulp-imagemin';
+import inject from 'gulp-inject';
+import notify from "gulp-notify";
+import plumber from 'gulp-plumber';
+import sass from 'gulp-sass';
+import size from 'gulp-size';
+import sourcemaps from 'gulp-sourcemaps';
+import uglify from 'gulp-uglify';
 
-var plumberErrorNotify = {
+const plumberErrorNotify = {
 	errorHandler: notify.onError("Error: <%= error.message %>")
 };
 
 //start default or specific tasks
-gulp.task('clean', function (cb) {
-	return del(['dist', 'dev'], cb);
-});
+gulp.task('clean', () => del(['dist', 'dev']));
 //end default or specific tasks
 
 //start only deploy tasks
-gulp.task('copy_vendor_js', function () {
+gulp.task('copyVendorJs', () => {
 	return gulp.src([
 		'src/js/vendor/!(jquery)*.js',
 		'src/js/vendor/*.js',
@@ -50,7 +48,7 @@ gulp.task('copy_vendor_js', function () {
 		}));
 });
 
-gulp.task('html', ['copy_vendor_js'], function () {
+gulp.task('html', ['copyVendorJs'], () => {
 	return gulp.src(['src/*.html'])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(nunjucksRender({
@@ -79,7 +77,7 @@ gulp.task('html', ['copy_vendor_js'], function () {
 		}));
 });
 
-gulp.task('copy_fonts', function () {
+gulp.task('copyFonts', () => {
 	return gulp.src([
 		'src/fonts/**/*'
 	])
@@ -95,7 +93,7 @@ gulp.task('copy_fonts', function () {
 		}));
 });
 
-gulp.task('copy_data', function () {
+gulp.task('copyData', () => {
 	return gulp.src([
 		'src/data/**/*'
 	])
@@ -111,7 +109,7 @@ gulp.task('copy_data', function () {
 		}));
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', () => {
 	return gulp.src([
 		'src/scss/main.scss'
 	])
@@ -137,7 +135,7 @@ gulp.task('styles', function () {
 		}));
 });
 
-gulp.task('images', function () {
+gulp.task('images', () => {
 	return gulp.src([
 		'src/img/**/*'
 	])
@@ -159,7 +157,7 @@ gulp.task('images', function () {
 		}))
 });
 
-gulp.task('scripts', function () {
+gulp.task('scripts', () => {
 	return gulp.src([
 		'!src/js/vendor/*.js',
 		'src/js/**/!(main)*.js',
@@ -183,15 +181,15 @@ gulp.task('scripts', function () {
 		}));
 });
 
-gulp.task('default', ['clean'], function (cb) {
+gulp.task('default', ['clean'], (cb) => {
 	runSequence(
 		[
 			'styles',
-			'copy_data',
+			'copyData',
 			'scripts',
-			'copy_fonts',
+			'copyFonts',
 			'html',
-			'copy_vendor_js'
+			'copyVendorJs'
 		],
 		'images', /*images optimization can be with delay, must wait*/
 		cb
@@ -200,7 +198,7 @@ gulp.task('default', ['clean'], function (cb) {
 //end only deploy tasks
 
 //start only dev tasks
-gulp.task('copy_vendor_js-dev', function () {
+gulp.task('copyVendorJsDev', () => {
 	return gulp.src([
 		'src/js/vendor/!(jquery)*.js',
 		'src/js/vendor/*.js',
@@ -219,7 +217,7 @@ gulp.task('copy_vendor_js-dev', function () {
 		}));
 });
 
-gulp.task('html-dev', ['copy_vendor_js-dev'], function () {
+gulp.task('htmlDev', ['copyVendorJsDev'], () => {
 	return gulp.src(['src/*.html'])
 		.pipe(plumber(plumberErrorNotify))
 		.pipe(changed('dev/*.html'))
@@ -249,7 +247,7 @@ gulp.task('html-dev', ['copy_vendor_js-dev'], function () {
 		}));
 });
 
-gulp.task('copy_fonts-dev', function () {
+gulp.task('copyFontsDev', () => {
 	return gulp.src([
 		'src/fonts/**/*'
 	])
@@ -266,7 +264,7 @@ gulp.task('copy_fonts-dev', function () {
 		}));
 });
 
-gulp.task('copy_data-dev', function () {
+gulp.task('copyDataDev', () => {
 	return gulp.src([
 		'src/data/**/*'
 	])
@@ -283,7 +281,7 @@ gulp.task('copy_data-dev', function () {
 		}));
 });
 
-gulp.task('styles-dev', function () {
+gulp.task('stylesDev', () => {
 	return gulp.src([
 		'src/scss/main.scss'
 	])
@@ -312,7 +310,7 @@ gulp.task('styles-dev', function () {
 		}));
 });
 
-gulp.task('images-dev', function () {
+gulp.task('imagesDev', () => {
 	return gulp.src([
 		'src/img/**/*'
 	])
@@ -329,7 +327,7 @@ gulp.task('images-dev', function () {
 		}))
 });
 
-gulp.task('scripts-dev', function () {
+gulp.task('scriptsDev', () => {
 	return gulp.src([
 		'!src/js/vendor/*.js',
 		'src/js/**/!(main)*.js',
@@ -359,22 +357,22 @@ gulp.task('scripts-dev', function () {
 		}));
 });
 
-gulp.task('dev', ['clean'], function (cb) {
+gulp.task('dev', ['clean'], (cb) => {
 	runSequence(
 		[
-			'styles-dev',
-			'copy_data-dev',
-			'scripts-dev',
-			'copy_fonts-dev',
-			'html-dev',
-			'copy_vendor_js-dev'
+			'stylesDev',
+			'copyDataDev',
+			'scriptsDev',
+			'copyFontsDev',
+			'htmlDev',
+			'copyVendorJsDev'
 		],
-		'images-dev', /*images optimization can be with delay, must wait*/
+		'imagesDev', /*images optimization can be with delay, must wait*/
 		cb
 	);
 });
 
-gulp.task('serve', ['dev'], function () {
+gulp.task('serve', ['dev'], () => {
 	browserSync({
 		tunnel: false,
 		//tunnel: "gulp-project-starter",
@@ -386,12 +384,12 @@ gulp.task('serve', ['dev'], function () {
 		}
 	});
 
-	gulp.watch(['src/data/**/*'], ['copy_data-dev']);
-	gulp.watch(['src/js/vendor/*.js'], ['copy_vendor_js-dev']);
-	gulp.watch(['src/scss/**/*'], ['styles-dev']);
-	gulp.watch(['src/img/**/*'], ['images-dev']);
-	gulp.watch(['src/fonts/**/*'], ['copy_fonts-dev']);
-	gulp.watch(['src/js/**/*'], ['scripts-dev']);
-	gulp.watch(['src/*.html', 'src/templates/*.html', 'src/templates/**/*.html'], ['html-dev']);
+	gulp.watch(['src/data/**/*'], ['copyDataDev']);
+	gulp.watch(['src/js/vendor/*.js'], ['copyVendorJsDev']);
+	gulp.watch(['src/scss/**/*'], ['stylesDev']);
+	gulp.watch(['src/img/**/*'], ['imagesDev']);
+	gulp.watch(['src/fonts/**/*'], ['copyFontsDev']);
+	gulp.watch(['src/js/**/*'], ['scriptsDev']);
+	gulp.watch(['src/*.html', 'src/templates/*.html', 'src/templates/**/*.html'], ['htmlDev']);
 });
 //end only dev tasks
