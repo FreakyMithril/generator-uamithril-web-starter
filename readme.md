@@ -9,7 +9,7 @@ First, install [Yeoman](http://yeoman.io) and generator-uamithril-web-starter us
 npm install -g yo generator-uamithril-web-starter
 ```
 
-Create some new folder for project, and inside it, - run:
+Create some **New folder for project!!!**, and inside it, - run:
 
 ```bash
 yo uamithril-web-starter
