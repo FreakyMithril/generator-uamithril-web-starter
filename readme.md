@@ -6,8 +6,7 @@
 First, install [Yeoman](http://yeoman.io) and generator-uamithril-web-starter using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
-npm install -g yo
-npm install -g generator-uamithril-web-starter
+npm install -g yo generator-uamithril-web-starter
 ```
 
 Create some new folder for project, and inside it, - run:
