@@ -1,8 +1,9 @@
 # Gulp Project Starter (Nunjucks template engine) 
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 ### Must have on your computer:
-1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.0 Windows):
-2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 4.6.0 Windows):
+1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.1 Windows)
+2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.9.1 Windows)
+3. Optional - [Yarn](https://yarnpkg.com/en/docs/install) - Can help you to replace NPM
 
 -----------------------------------------------
 
@@ -11,9 +12,17 @@ For global dependencies needed on computer:
 ```
 npm install browser-sync gulp csscomb -g
 ```
+or for Yarn:
+```
+yarn global add browser-sync gulp csscomb
+```
 For install local dependencies:
 ```
 npm install
+```
+or for Yarn:
+```
+yarn
 ```
 
 -----------------------------------------------
