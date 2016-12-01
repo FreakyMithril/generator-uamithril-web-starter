@@ -1,7 +1,8 @@
 # Gulp Project Starter
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 ### Must have on your computer:
-1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.0 Windows):
-2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 4.6.0 Windows):
+1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.1 Windows):
+2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.9.1 Windows):
 
 -----------------------------------------------
 
@@ -49,9 +50,8 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 ### Structure:
 * "src" folder - sources.
 * "dev" folder - local dev folder(server from it)
-* "dist" folder - deploy version. (please compile before push)
+* "dist" folder - deploy version. (not stored in git)
 * "temp" folder - there could be other files. (not stored in git)
-* "dist" folder - you can delete from '.gitignore' file, and leave only sources in repo, after that you can make simpler commits, without stop 'serve' task before.
 
 ```
 +-- dist
@@ -148,3 +148,12 @@ In "inc" folder we have html parts that need to be include
 We can use to store some files Data
 6. Dev(serve) Task:
 Starts local server, show sourcemaps for scss and js files, not optimizing images.
+
+## License
+
+MIT © uaMithril
+
+[travis-image]: https://travis-ci.org/uamithril/generator-uamithril-web-starter.svg?branch=html-template-engine
+[travis-url]: https://travis-ci.org/uamithril/generator-uamithril-web-starter
+[daviddm-image]: https://david-dm.org/uamithril/generator-uamithril-web-starter/html-template-engine.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/uamithril/generator-uamithril-web-starter/html-template-engine

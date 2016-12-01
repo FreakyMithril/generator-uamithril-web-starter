@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - v7
+  - v6
+branches:
+  only:
+  - html-template-engine

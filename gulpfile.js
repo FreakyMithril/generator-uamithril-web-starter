@@ -138,25 +138,30 @@ gulp.task('styles', function () {
 });
 
 gulp.task('images', function () {
-	return gulp.src([
-		'src/img/**/*'
-	])
-		.pipe(plumber(plumberErrorNotify))
-		.pipe(imagemin({
-			progressive: true,
-			optimizationLevel: 3,
-			use: [pngquant()],
-			interlaced: true
-		}))
-		.pipe(gulp.dest('dist/img'))
-		.pipe(notify({
-			"title": "Images",
-			"message": "images compiled!",
-			"onLast": true
-		}))
-		.pipe(reload({
-			stream: true
-		}))
+  return gulp.src([
+    'src/img/**/*'
+  ])
+    .pipe(plumber(plumberErrorNotify))
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      pngquant(),
+      imagemin.svgo({plugins: [
+        {removeViewBox: false},
+        {removeTitle: true},
+        {removeDesc: true},
+        {removeComments: true}
+      ]})
+    ]))
+    .pipe(gulp.dest('dist/img'))
+    .pipe(notify({
+      "title": "Images",
+      "message": "images compiled!",
+      "onLast": true
+    }))
+    .pipe(reload({
+      stream: true
+    }))
 });
 
 gulp.task('scripts', function () {
