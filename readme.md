@@ -1,33 +1,19 @@
-# Gulp Project Starter
+# Gulp Project Starter (Html template engine) 
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 ### Must have on your computer:
-1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.1 Windows):
-2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.9.1 Windows):
+1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.1 Windows)
+2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.9.1 Windows)
 
 -----------------------------------------------
 
 ### Packages:
 For global dependencies needed on computer:
 ```
-npm install -g browser-sync
-```
-```
-npm install -g gulp
-```
-```
-npm install -g csscomb
+npm install browser-sync gulp csscomb -g
 ```
 For install local dependencies:
 ```
 npm install
-```
-
------------------------------------------------
-
-If you changed some dependencies, or updated it, - please, manually update package.json
-If have issues after update, Use:
-```
-npm cache clean
 ```
 
 -----------------------------------------------
@@ -48,10 +34,10 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 -----------------------------------------------
 
 ### Structure:
-* "src" folder - sources.
-* "dev" folder - local dev folder(server from it)
-* "dist" folder - deploy version. (not stored in git)
-* "temp" folder - there could be other files. (not stored in git)
+* "src" folder - project sources
+* "dev" folder - local dev folder (local server work from it, not stored in git)
+* "dist" folder - deploy version (not stored in git)
+* "temp" folder - there could be other files (not stored in git)
 
 ```
 +-- dist
@@ -128,6 +114,7 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 --- .csscomb.json
 --- .gitignore
 --- gulpfile.js
+--- LICENSE
 --- package.json
 --- readme.md
 ```
@@ -143,9 +130,9 @@ All files in "js" folder except 'vendor' will be concatenated to main.js(src/js/
 3. Images:
 Will auto optimized
 4. Includes:
-In "inc" folder we have html parts that need to be include
+In "inc" folder we have html parts that need to be include or use.
 5. Data folder:
-We can use to store some files Data
+We can use to store some files Data, like Json, and others
 6. Dev(serve) Task:
 Starts local server, show sourcemaps for scss and js files, not optimizing images.
 
