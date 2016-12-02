@@ -21,7 +21,6 @@
   "dependencies": {
     "browser-sync": "^2.16.0",
     "del": "^2.2.2",
-    "gulp-sourcemaps": "^1.9.1",
     "imagemin-pngquant": "^5.0.0",
     "run-sequence": "^1.2.2"
   },
