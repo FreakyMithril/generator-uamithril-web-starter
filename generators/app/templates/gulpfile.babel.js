@@ -140,12 +140,19 @@ gulp.task('images', () => {
 		'src/img/**/*'
 	])
 		.pipe(plumber(plumberErrorNotify))
-		.pipe(imagemin({
-			progressive: true,
-			optimizationLevel: 3,
-			use: [pngquant()],
-			interlaced: true
-		}))
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      pngquant(),
+      imagemin.svgo({
+        plugins: [
+          {removeViewBox: false},
+          {removeTitle: true},
+          {removeDesc: true},
+          {removeComments: true}
+        ]
+      })
+    ]))
 		.pipe(gulp.dest('dist/img'))
 		.pipe(notify({
 			"title": "Images",
