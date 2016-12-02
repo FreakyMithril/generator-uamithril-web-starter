@@ -16,6 +16,8 @@
   "main": "generators/index.js",
   "keywords": [
     "uamithril",
+    "boilerplate",
+    "for-personal-use",
     "web-starter",
     "gulp",
     "nunjucks",
