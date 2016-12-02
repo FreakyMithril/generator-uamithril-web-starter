@@ -121,11 +121,14 @@ copy_data task for copy some data, that must to be used(example: json, files, pd
 +-- temp
 |   --- anyfile.psd
 |   --- anyfile.zip
+--- .babelrc
 --- .csscomb.json
 --- .gitignore
 --- gulpfile.babel.js
+--- LICENSE
 --- package.json
 --- readme.md
+--- yarn.lock
 ```
 
 -----------------------------------------------
