@@ -2,7 +2,7 @@
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 ### Must have on your computer:
 1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.1 Windows)
-2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.9.1 Windows)
+2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.10.0 Windows)
 3. Optional - [Yarn](https://yarnpkg.com/en/docs/install) - Can help you to replace NPM
 
 -----------------------------------------------
