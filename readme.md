@@ -1,8 +1,9 @@
-# Gulp Project Starter (Html template engine) 
-[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# This branch is no longer maintained !!!
+## Gulp Project Starter (Html template engine) 
+[![Build Status][travis-image]][travis-url]
 ### Must have on your computer:
 1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.10.1 Windows)
-2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.9.1 Windows)
+2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.10.0 Windows)
 
 -----------------------------------------------
 
@@ -142,5 +143,3 @@ MIT © uaMithril
 
 [travis-image]: https://travis-ci.org/uamithril/generator-uamithril-web-starter.svg?branch=html-template-engine
 [travis-url]: https://travis-ci.org/uamithril/generator-uamithril-web-starter
-[daviddm-image]: https://david-dm.org/uamithril/generator-uamithril-web-starter/html-template-engine.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/uamithril/generator-uamithril-web-starter/html-template-engine
