@@ -3,10 +3,16 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-uamithril-web-starter using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/), LTS v6.9.1 and bigger).
+First, install [Yeoman](http://yeoman.io) and generator-uamithril-web-starter using [yarn](https://yarnpkg.com/en/docs/install) or [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/), LTS v6.10.0 and bigger).
 
 ```bash
-npm install -g yo generator-uamithril-web-starter
+# via Yarn
+yarn global add yo
+yarn global add generator-uamithril-web-starter
+
+# via npm
+npm install -g yo
+npm install -g generator-uamithril-web-starter
 ```
 
 Create some **New folder for project!!!**, and inside it, - run:
@@ -24,6 +30,7 @@ Boilerplate inside:
 * scss
 * gulp.js
 * auto-optimized images
+* yarn support
 
 no bower.js for now.
 
