@@ -9,39 +9,42 @@
   },
   "files": [
     "src/",
-    "src/data",
-    "src/fonts",
-    "src/img",
+    "src/data/",
+    "src/fonts/",
+    "src/img/",
+    "src/js/",
+    "src/scss/",
+    "src/templates/",
+    "src/index.html",
     ".babelrc",
     ".csscomb.json",
     ".gitignore",
     "gulpfile.babel.js",
+    "LICENSE",
     "package.json",
     "readme.md",
     "yarn.lock"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp"
   },
   "author": {
     "name": "<%= projectAuthorName %>",
     "email": "<%= projectAuthorEmail %>"
   },
   "dependencies": {
-    "browser-sync": "^2.18.8",
-    "del": "^2.2.2",
-    "imagemin-pngquant": "^5.0.0",
-    "run-sequence": "^1.2.2"
-  },
-  "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-preset-es2015": "^6.22.0",
     "babel-register": "^6.23.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-babel": "^6.1.2",
     "gulp-changed": "^2.0.0",
-    "gulp-concat": "^2.6.0",
+    "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^3.1.1",
     "gulp-inject": "^4.2.0",
     "gulp-notify": "^3.0.0",
@@ -50,6 +53,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-size": "^2.1.0",
     "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^2.0.1"
+    "gulp-uglify": "^2.1.0",
+    "imagemin-pngquant": "^5.0.0",
+    "run-sequence": "^1.2.2"
   }
 }
