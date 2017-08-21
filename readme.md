@@ -1,8 +1,8 @@
 # Gulp Project Starter (Nunjucks template engine) 
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 ### Must have on your computer:
-1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.12.0 Windows)
-2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.10.0 Windows)
+1. [Git](https://git-scm.com/download) (Guaranteed to work on: 2.14.1)
+2. [Node.js](https://nodejs.org/en/download) LTS (Guaranteed to work on: 6.11.2)
 3. Optional - [Yarn](https://yarnpkg.com/en/docs/install) - Can help you to replace NPM
 
 -----------------------------------------------

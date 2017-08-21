@@ -96,9 +96,9 @@ gulp.task('copyFonts', () => {
 gulp.task('copyData', () => {
   return gulp.src([
     'src/data/**/*'
-  ])
+  ], {base: './src/'})
     .pipe(plumber(plumberErrorNotify))
-    .pipe(gulp.dest('dist/data'))
+    .pipe(gulp.dest('dist/'))
     .pipe(notify({
       "title": "Data",
       "message": "Data moved!",
@@ -119,7 +119,7 @@ gulp.task('styles', () => {
     }))
     .pipe(concat('main.css'))
     .pipe(prefix({
-      browsers: ['ie 8', 'opera 12', 'ff 15', 'chrome 25', 'last 2 version']
+      browsers: ['ie 10', 'last 2 version']
     }))
     .pipe(size({
       "title": "Styles size of"
@@ -171,7 +171,9 @@ gulp.task('scripts', () => {
     'src/js/main.js'
   ])
     .pipe(plumber(plumberErrorNotify))
-    .pipe(babel())
+    .pipe(babel({
+      presets: ['env']
+    }))
     .pipe(concat('main.js')) /*build single file*/
     .pipe(uglify())
     .pipe(size({
@@ -274,10 +276,9 @@ gulp.task('copyFontsDev', () => {
 gulp.task('copyDataDev', () => {
   return gulp.src([
     'src/data/**/*'
-  ])
+  ], {base: './src/'})
     .pipe(plumber(plumberErrorNotify))
-    .pipe(changed('dev/data'))
-    .pipe(gulp.dest('dev/data'))
+    .pipe(gulp.dest('dev/'))
     .pipe(notify({
       "title": "Data",
       "message": "Data moved!",
@@ -299,7 +300,7 @@ gulp.task('stylesDev', () => {
       outputStyle: 'expanded'
     }))
     .pipe(prefix({
-      browsers: ['ie 8', 'opera 12', 'ff 15', 'chrome 25', 'last 2 version']
+      browsers: ['ie 10', 'last 2 version']
     }))
     .pipe(sourcemaps.write())
     .pipe(concat('main.css'))
@@ -342,7 +343,9 @@ gulp.task('scriptsDev', () => {
   ])
     .pipe(plumber(plumberErrorNotify))
     .pipe(sourcemaps.init())
-    .pipe(babel())
+    .pipe(babel({
+      presets: ['env']
+    }))
     .pipe(concat('main.js')) /*build single file*/
     .pipe(uglify({
       mangle: false,
