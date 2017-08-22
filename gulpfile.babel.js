@@ -21,6 +21,9 @@ import size from 'gulp-size';
 import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
 
+import webpackConfig from './tasks/webpack';
+import webpack from 'webpack';
+
 const plumberErrorNotify = {
   errorHandler: notify.onError("Error: <%= error.message %>")
 };
@@ -366,16 +369,20 @@ gulp.task('es6-commonjsDev', () => {
     }));
 });
 
-gulp.task('scriptsDev', ['es6-commonjsDev'], () => {
-  return browserify([
-    'dev/temp/*.js',
-    'dev/temp/**/*.js'
-  ]).bundle()
-    .pipe(source('app.js'))
-    .pipe(buffer())
-    .pipe(uglify())
-    .pipe(rename('app.js'))
-    .pipe(gulp.dest("es5/commonjs"));
+gulp.task('scriptsDev', (callback) => {
+  webpack(webpackConfig, function(err, stats) {
+    if(err) new log('Webpack', err).error();
+    new log('Webpack',stats.toString({
+      assets: true,
+      chunks: false,
+      chunkModules: false,
+      colors: true,
+      hash: false,
+      timings: true,
+      version: false
+    })).info();
+    callback();
+  });
 });
 
 gulp.task('dev', ['clean'], (cb) => {

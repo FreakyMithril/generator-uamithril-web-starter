@@ -59,6 +59,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "imagemin-pngquant": "^5.0.1",
-    "run-sequence": "^2.1.0"
+    "run-sequence": "^2.1.0",
+    "webpack": "^3.5.5"
   }
 }
