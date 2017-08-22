@@ -335,36 +335,47 @@ gulp.task('imagesDev', () => {
     }))
 });
 
-gulp.task('scriptsDev', () => {
+gulp.task('es6-commonjsDev', () => {
   return gulp.src([
-    '!src/js/vendor/*.js',
-    'src/js/**/!(main)*.js',
-    'src/js/main.js'
+    'src/js/*.js',
+    'src/js/**/*.js'
   ])
     .pipe(plumber(plumberErrorNotify))
-    .pipe(sourcemaps.init())
+    //.pipe(sourcemaps.init())
     .pipe(babel({
       presets: ['env']
     }))
-    .pipe(concat('main.js')) /*build single file*/
-    .pipe(uglify({
-      mangle: false,
-      compress: false,
-      output: {beautify: true}
-    }))
-    .pipe(sourcemaps.write())
+    //.pipe(concat('main.js')) /*build single file*/
+    // .pipe(uglify({
+    //   mangle: false,
+    //   compress: false,
+    //   output: {beautify: true}
+    // }))
+    // .pipe(sourcemaps.write())
     .pipe(size({
       "title": "Scripts size of"
     }))
-    .pipe(gulp.dest('dev/js'))
+    .pipe(gulp.dest('dev/temp'))
     .pipe(notify({
       "title": "JS",
-      "message": "scripts compiled!",
+      "message": "ES compiled!",
       "onLast": true
     }))
     .pipe(reload({
       stream: true
     }));
+});
+
+gulp.task('scriptsDev', ['es6-commonjsDev'], () => {
+  return browserify([
+    'dev/temp/*.js',
+    'dev/temp/**/*.js'
+  ]).bundle()
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(rename('app.js'))
+    .pipe(gulp.dest("es5/commonjs"));
 });
 
 gulp.task('dev', ['clean'], (cb) => {
