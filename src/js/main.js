@@ -1,27 +1,16 @@
-import { generateRandom, sum } from 'modules/utility';
+import { generateRandom, sum } from './modules/utility';
+import { header} from './modules/header';
+import { footer } from './modules/footer';
+import { $, jQuery } from "jquery";
+import bootstrap from "bootstrap";
 
-import $ from 'jquery';
+console.log($);
 
-$('.cta').on('click',function() {
-  alert('Ya clicked it!');
-});
+console.log(sum(8, 19));
+console.log(generateRandom());
+console.log(header);
+console.log(footer);
 
-//========================================================================
-//Begin all initial scripts
-//========================================================================
-(($, window, document) => {
-	'use strict';
-
-	//start code here
-  console.log(header);
-
-  let name = "Guy Fieri";
-  let place = "Flavortown";
-
-  console.log(`Hello ${name}, ready for ${place}?`);
-
-
-})(jQuery, window, document);
-//========================================================================
-//end all initial scripts
-//========================================================================
+let name = "Guy Fieri";
+let place = "Flavortown";
+console.log(`Hello ${name}, ready for ${place}?`);

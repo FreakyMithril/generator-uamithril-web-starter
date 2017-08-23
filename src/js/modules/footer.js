@@ -1,3 +1,3 @@
-let footer = 'header var';
+let footer = 'That is footer var';
 
-export default footer;
+export {footer};

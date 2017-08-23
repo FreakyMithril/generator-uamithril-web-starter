@@ -21,8 +21,7 @@ import size from 'gulp-size';
 import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
 
-import webpackConfig from './tasks/webpack';
-import webpack from 'webpack';
+import webpack from 'webpack-stream';
 
 const plumberErrorNotify = {
   errorHandler: notify.onError("Error: <%= error.message %>")
@@ -369,20 +368,43 @@ gulp.task('es6-commonjsDev', () => {
     }));
 });
 
-gulp.task('scriptsDev', (callback) => {
-  webpack(webpackConfig, function(err, stats) {
-    if(err) new log('Webpack', err).error();
-    new log('Webpack',stats.toString({
-      assets: true,
-      chunks: false,
-      chunkModules: false,
-      colors: true,
-      hash: false,
-      timings: true,
-      version: false
-    })).info();
-    callback();
-  });
+gulp.task('scriptsDev', () => {
+  return gulp.src([
+    'src/js/main.js',
+  ])
+    .pipe(plumber(plumberErrorNotify))
+    .pipe(webpack({
+      module: {
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['env']
+              }
+            }
+          }
+        ]
+      },
+      devtool: 'inline-source-map',
+      output: {
+        filename: 'main.js',
+      }
+    }))
+    .pipe(size({
+      "title": "Scripts size of"
+    }))
+    .pipe(gulp.dest('dev/js/'))
+    .pipe(notify({
+        "title": "JS",
+        "message": "scripts compiled!",
+        "onLast": true
+    }))
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 gulp.task('dev', ['clean'], (cb) => {
