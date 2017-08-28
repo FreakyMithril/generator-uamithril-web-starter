@@ -172,7 +172,10 @@ gulp.task('scripts', () => {
   ])
     .pipe(plumber(plumberErrorNotify))
     .pipe(babel({
-      presets: ['env']
+      presets: ['env'],
+      only: [
+        "main.js"
+      ]
     }))
     .pipe(concat('main.js')) /*build single file*/
     .pipe(uglify())
@@ -344,7 +347,10 @@ gulp.task('scriptsDev', () => {
     .pipe(plumber(plumberErrorNotify))
     .pipe(sourcemaps.init())
     .pipe(babel({
-      presets: ['env']
+      presets: ['env'],
+      only: [
+        "main.js"
+      ]
     }))
     .pipe(concat('main.js')) /*build single file*/
     .pipe(uglify({
