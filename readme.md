@@ -1,5 +1,5 @@
-# uaMithril Web Starter Generator [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Web Project starter with template engine - Nunjucks, scss, and gulp.js
+# DEPRECATED [![NPM version][npm-image]][npm-url] [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+> This repo outdated! And is no longer supported
 
 ## Installation
 
